@@ -1,11 +1,11 @@
 'use strict';
 
-class App extends React.Component
+class Clock extends React.Component
 {
     constructor(props)
     {
         super(props);
-
+        
         this.state = {date: new Date()};
     }
 
@@ -14,10 +14,8 @@ class App extends React.Component
         var date_formatted = this.formatDate(this.state);
 
         return <div>
-            
             <h1>Hey folks!</h1>
             <h3>Today is {date_formatted} </h3>
-            {/* <p>Name: {this.props.name}</p> */}
         </div>;
     }
 
@@ -88,4 +86,48 @@ class App extends React.Component
     }
 }
 
-ReactDOM.render(<App name = "ReactTest"/>, document.getElementById("root"));
+class SwitchButton extends React.Component
+{
+    constructor(props)
+    {
+        super(props);
+
+        this.state = {powered: false};
+
+        this.onClick = this.onClick.bind(this);
+    }
+
+    render()
+    {
+        return <button onClick = {this.onClick}>{this.state.powered ? "ON" : "OFF"}</button>
+    }
+
+    onClick(state)
+    {
+        this.setState( (state) => ({powered: !state.powered}));
+    }
+}
+
+class App extends React.Component
+{
+    constructor(props)
+    {
+        super(props);
+    }
+
+    render()
+    {
+        return <div>
+        <Clock/>
+            {/* <ul>
+                <li>Coffee</li>
+                <li>Tea</li>
+                <li>Milk</li>
+            </ul> */}
+
+        <SwitchButton/>
+        </div>;
+    }
+}
+
+ReactDOM.render(<App/>, document.getElementById("root"));

@@ -8,19 +8,19 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var App = function (_React$Component) {
-    _inherits(App, _React$Component);
+var Clock = function (_React$Component) {
+    _inherits(Clock, _React$Component);
 
-    function App(props) {
-        _classCallCheck(this, App);
+    function Clock(props) {
+        _classCallCheck(this, Clock);
 
-        var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (Clock.__proto__ || Object.getPrototypeOf(Clock)).call(this, props));
 
         _this.state = { date: new Date() };
         return _this;
     }
 
-    _createClass(App, [{
+    _createClass(Clock, [{
         key: "render",
         value: function render() {
             var date_formatted = this.formatDate(this.state);
@@ -105,7 +105,66 @@ var App = function (_React$Component) {
         }
     }]);
 
+    return Clock;
+}(React.Component);
+
+var SwitchButton = function (_React$Component2) {
+    _inherits(SwitchButton, _React$Component2);
+
+    function SwitchButton(props) {
+        _classCallCheck(this, SwitchButton);
+
+        var _this3 = _possibleConstructorReturn(this, (SwitchButton.__proto__ || Object.getPrototypeOf(SwitchButton)).call(this, props));
+
+        _this3.state = { powered: false };
+
+        _this3.onClick = _this3.onClick.bind(_this3);
+        return _this3;
+    }
+
+    _createClass(SwitchButton, [{
+        key: "render",
+        value: function render() {
+            return React.createElement(
+                "button",
+                { onClick: this.onClick },
+                this.state.powered ? "ON" : "OFF"
+            );
+        }
+    }, {
+        key: "onClick",
+        value: function onClick(state) {
+            this.setState(function (state) {
+                return { powered: !state.powered };
+            });
+        }
+    }]);
+
+    return SwitchButton;
+}(React.Component);
+
+var App = function (_React$Component3) {
+    _inherits(App, _React$Component3);
+
+    function App(props) {
+        _classCallCheck(this, App);
+
+        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+    }
+
+    _createClass(App, [{
+        key: "render",
+        value: function render() {
+            return React.createElement(
+                "div",
+                null,
+                React.createElement(Clock, null),
+                React.createElement(SwitchButton, null)
+            );
+        }
+    }]);
+
     return App;
 }(React.Component);
 
-ReactDOM.render(React.createElement(App, { name: "ReactTest" }), document.getElementById("root"));
+ReactDOM.render(React.createElement(App, null), document.getElementById("root"));
