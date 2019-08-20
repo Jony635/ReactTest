@@ -1,3 +1,5 @@
+import "./app.cs";
+
 'use strict';
 
 class Clock extends React.Component

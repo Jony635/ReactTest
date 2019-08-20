@@ -1,0 +1,20 @@
+body 
+{
+    background-color: #282c34;
+    color: white;
+    padding: 20px;
+    font-family: Arial;
+    text-align: left;
+}
+
+button
+{
+    background-color: dimgrey;
+    color: white;
+    width: 120px;
+    height: 120px;
+    border: none;
+    font-size: 30px;
+    border-radius: 10%;
+    margin-left: 50%;
+}
