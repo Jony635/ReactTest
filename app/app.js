@@ -27,7 +27,7 @@ var Clock = function (_React$Component) {
 
             return React.createElement(
                 "div",
-                null,
+                { className: "inlineElem" },
                 React.createElement(
                     "h1",
                     null,
@@ -157,7 +157,7 @@ var App = function (_React$Component3) {
         value: function render() {
             return React.createElement(
                 "div",
-                null,
+                { className: "inlineElem" },
                 React.createElement(Clock, null),
                 React.createElement(SwitchButton, null)
             );

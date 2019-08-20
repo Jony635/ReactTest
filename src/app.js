@@ -1,5 +1,3 @@
-import "./app.cs";
-
 'use strict';
 
 class Clock extends React.Component
@@ -15,7 +13,7 @@ class Clock extends React.Component
     {
         var date_formatted = this.formatDate(this.state);
 
-        return <div>
+        return <div className = "inlineElem">
             <h1>Hey folks!</h1>
             <h3>Today is {date_formatted} </h3>
         </div>;
@@ -119,7 +117,7 @@ class App extends React.Component
 
     render()
     {
-        return <div>
+        return <div className = "inlineElem">
         <Clock/>
             {/* <ul>
                 <li>Coffee</li>
