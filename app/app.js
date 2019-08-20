@@ -86,7 +86,22 @@ var App = function (_React$Component) {
                     break;
             }
 
-            return week_day + " " + date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear() + " " + state.date.toLocaleTimeString();
+            var day = date.getDate().toString();
+            if (day.length == 1) day = '0' + day;
+
+            var month = (date.getMonth() + 1).toString();
+            if (month.length == 1) month = '0' + month;
+
+            var hours = date.getHours().toString();
+            if (hours.length == 1) hours = '0' + hours;
+
+            var minutes = date.getMinutes().toString();
+            if (minutes.length == 1) minutes = '0' + minutes;
+
+            var seconds = date.getSeconds().toString();
+            if (seconds.length == 1) seconds = '0' + seconds;
+
+            return week_day + " " + day + "/" + month + "/" + date.getFullYear() + " " + hours + ":" + minutes + ":" + seconds;
         }
     }]);
 

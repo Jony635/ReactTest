@@ -64,7 +64,27 @@ class App extends React.Component
                 break;
         }
 
-        return week_day + " " + date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear() + " " + state.date.toLocaleTimeString(); 
+        let day = date.getDate().toString();
+        if(day.length == 1)
+            day = '0' + day;
+
+        let month = (date.getMonth()+1).toString();
+        if(month.length == 1)
+            month = '0' + month;
+
+        let hours = date.getHours().toString();
+        if(hours.length == 1)
+            hours = '0' + hours;
+
+        let minutes = date.getMinutes().toString();
+        if(minutes.length == 1)
+            minutes = '0' + minutes;
+
+        let seconds = date.getSeconds().toString();
+        if(seconds.length == 1)
+            seconds = '0' + seconds;
+
+        return week_day + " " + day + "/" + month + "/" + date.getFullYear() + " " + hours + ":" + minutes + ":" + seconds; 
     }
 }
 
