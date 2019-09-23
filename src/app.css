@@ -26,6 +26,11 @@ button
     text-align: center;
 }
 
+button:hover
+{
+    cursor: pointer;
+}
+
 .video
 {
     margin: 20px;
