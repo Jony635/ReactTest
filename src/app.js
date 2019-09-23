@@ -126,6 +126,15 @@ class App extends React.Component
             </ul> */}
 
         <SwitchButton/>
+
+        <div className = "video">
+            <iframe width="949" 
+                    height="534" src="https://www.youtube.com/embed/668nUCeBHyY" frameborder="0" 
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
+        </div>
+        
+
         </div>;
     }
 }
