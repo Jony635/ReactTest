@@ -116,7 +116,7 @@ var SwitchButton = function (_React$Component2) {
 
         var _this3 = _possibleConstructorReturn(this, (SwitchButton.__proto__ || Object.getPrototypeOf(SwitchButton)).call(this, props));
 
-        _this3.state = { powered: false };
+        _this3.state = { powered: true };
 
         _this3.onClick = _this3.onClick.bind(_this3);
         return _this3;
@@ -135,7 +135,18 @@ var SwitchButton = function (_React$Component2) {
         key: "onClick",
         value: function onClick(state) {
             this.setState(function (state) {
-                return { powered: !state.powered };
+                var newState = { powered: !state.powered };
+
+                if (newState.powered && !mainAudio.playing) {
+                    mainAudio.play();
+                    mainAudio.playing = true;
+                } else if (!newState.powered && mainAudio.playing) {
+                    mainAudio.pause();
+                    mainAudio.currentTime = 0;
+                    mainAudio.playing = false;
+                }
+
+                return newState;
             });
         }
     }]);
@@ -169,7 +180,7 @@ var App = function (_React$Component3) {
                 ),
                 React.createElement(
                     "audio",
-                    { controls: true, autoplay: true, loop: true },
+                    { id: "mainAudio", loop: true },
                     React.createElement("source", { src: "resources/Bely Basarte - Mariposas.mp3", type: "audio/mp3" }),
                     "Your browser does not support the audio element."
                 )
@@ -179,5 +190,13 @@ var App = function (_React$Component3) {
 
     return App;
 }(React.Component);
+
+var mainAudio = undefined;
+function OnPageLoaded() {
+    mainAudio = document.getElementById("mainAudio");
+    mainAudio.volume = 0.6;
+    mainAudio.play();
+    mainAudio.playing = true;
+}
 
 ReactDOM.render(React.createElement(App, null), document.getElementById("root"));

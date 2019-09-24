@@ -92,7 +92,7 @@ class SwitchButton extends React.Component
     {
         super(props);
 
-        this.state = {powered: false};
+        this.state = {powered: true};
 
         this.onClick = this.onClick.bind(this);
     }
@@ -104,7 +104,25 @@ class SwitchButton extends React.Component
 
     onClick(state)
     {
-        this.setState( (state) => ({powered: !state.powered}));
+        this.setState( (state) => 
+        {
+            var newState = {powered: !state.powered};
+
+            if(newState.powered && !mainAudio.playing)
+            {
+                mainAudio.play();
+                mainAudio.playing = true;
+            }
+
+            else if(!newState.powered && mainAudio.playing)
+            {
+                mainAudio.pause();
+                mainAudio.currentTime = 0;
+                mainAudio.playing = false;
+            }
+
+            return newState;
+        })
     }
 }
 
@@ -134,7 +152,7 @@ class App extends React.Component
             </iframe>
         </div>
         
-        <audio controls autoplay loop>
+        <audio id = "mainAudio" loop>
             <source src="resources/Bely Basarte - Mariposas.mp3" type="audio/mp3"/>
             Your browser does not support the audio element.
         </audio> 
@@ -142,6 +160,15 @@ class App extends React.Component
 
         </div>;
     }
+}
+
+var mainAudio = undefined;
+function OnPageLoaded()
+{
+    mainAudio = document.getElementById("mainAudio");
+    mainAudio.volume = 0.6;
+    mainAudio.play();
+    mainAudio.playing = true;    
 }
 
 ReactDOM.render(<App/>, document.getElementById("root"));
