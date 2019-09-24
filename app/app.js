@@ -166,6 +166,12 @@ var App = function (_React$Component3) {
                     React.createElement("iframe", { width: "949",
                         height: "534", src: "https://www.youtube.com/embed/668nUCeBHyY", frameborder: "0",
                         allow: "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", allowfullscreen: true })
+                ),
+                React.createElement(
+                    "audio",
+                    { autoplay: true, loop: true },
+                    React.createElement("source", { src: "resources/Bely Basarte - Mariposas.mp3", type: "audio/mp3" }),
+                    "Your browser does not support the audio element."
                 )
             );
         }
