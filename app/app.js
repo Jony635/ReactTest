@@ -169,7 +169,7 @@ var App = function (_React$Component3) {
                 ),
                 React.createElement(
                     "audio",
-                    { autoplay: true, loop: true },
+                    { controls: true, autoplay: true, loop: true },
                     React.createElement("source", { src: "resources/Bely Basarte - Mariposas.mp3", type: "audio/mp3" }),
                     "Your browser does not support the audio element."
                 )

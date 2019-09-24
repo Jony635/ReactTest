@@ -134,7 +134,7 @@ class App extends React.Component
             </iframe>
         </div>
         
-        <audio autoplay loop>
+        <audio controls autoplay loop>
             <source src="resources/Bely Basarte - Mariposas.mp3" type="audio/mp3"/>
             Your browser does not support the audio element.
         </audio> 
