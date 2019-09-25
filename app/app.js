@@ -154,8 +154,70 @@ var SwitchButton = function (_React$Component2) {
     return SwitchButton;
 }(React.Component);
 
-var App = function (_React$Component3) {
-    _inherits(App, _React$Component3);
+var MainBar = function (_React$Component3) {
+    _inherits(MainBar, _React$Component3);
+
+    function MainBar(props) {
+        _classCallCheck(this, MainBar);
+
+        return _possibleConstructorReturn(this, (MainBar.__proto__ || Object.getPrototypeOf(MainBar)).call(this, props));
+    }
+
+    _createClass(MainBar, [{
+        key: "render",
+        value: function render() {
+            return React.createElement(
+                "div",
+                null,
+                React.createElement(
+                    "ul",
+                    { className: "MainBar" },
+                    React.createElement(
+                        "li",
+                        { className: "MainBar" },
+                        React.createElement(
+                            "a",
+                            { className: "MainBar", href: "" },
+                            "Home"
+                        )
+                    ),
+                    React.createElement(
+                        "li",
+                        { className: "MainBar" },
+                        React.createElement(
+                            "a",
+                            { className: "MainBar", href: "" },
+                            "News"
+                        )
+                    ),
+                    React.createElement(
+                        "li",
+                        { className: "MainBar" },
+                        React.createElement(
+                            "a",
+                            { className: "MainBar", href: "" },
+                            "Contact"
+                        )
+                    ),
+                    React.createElement(
+                        "li",
+                        { className: "MainBar" },
+                        React.createElement(
+                            "a",
+                            { className: "MainBar", href: "" },
+                            "About"
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return MainBar;
+}(React.Component);
+
+var App = function (_React$Component4) {
+    _inherits(App, _React$Component4);
 
     function App(props) {
         _classCallCheck(this, App);
@@ -168,21 +230,23 @@ var App = function (_React$Component3) {
         value: function render() {
             return React.createElement(
                 "div",
-                { className: "inlineElem" },
-                React.createElement(Clock, null),
-                React.createElement(SwitchButton, null),
+                null,
+                React.createElement(MainBar, null),
                 React.createElement(
                     "div",
-                    { className: "video" },
-                    React.createElement("iframe", { width: "949",
-                        height: "534", src: "https://www.youtube.com/embed/668nUCeBHyY", frameborder: "0",
-                        allow: "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", allowfullscreen: true })
-                ),
-                React.createElement(
-                    "audio",
-                    { id: "mainAudio", loop: true },
-                    React.createElement("source", { src: "resources/Bely Basarte - Mariposas.mp3", type: "audio/mp3" }),
-                    "Your browser does not support the audio element."
+                    null,
+                    React.createElement(
+                        "div",
+                        { className: "inlineElem" },
+                        React.createElement(Clock, null),
+                        React.createElement(SwitchButton, null),
+                        React.createElement(
+                            "audio",
+                            { id: "mainAudio", loop: true },
+                            React.createElement("source", { src: "resources/Bely Basarte - Mariposas.mp3", type: "audio/mp3" }),
+                            "Your browser does not support the audio element."
+                        )
+                    )
                 )
             );
         }
@@ -197,6 +261,9 @@ function OnPageLoaded() {
     mainAudio.volume = 0.6;
     mainAudio.play();
     mainAudio.playing = true;
+    mainAudio.onended = function () {
+        mainAudio.play();
+    };
 }
 
 ReactDOM.render(React.createElement(App, null), document.getElementById("root"));

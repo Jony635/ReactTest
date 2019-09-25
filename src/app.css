@@ -2,7 +2,8 @@ body
 {
     background-color: #282c34;
     color: white;
-    padding: 20px;
+    padding: 0px;
+    margin: 0px;
     font-family: Arial;
     text-align: center;
 }
@@ -10,6 +11,7 @@ body
 .inlineElem
 {
     display: inline-block;
+    margin-top: 20px;
 }
 
 button
@@ -34,4 +36,34 @@ button:hover
 .video
 {
     margin: 20px;
+}
+
+ul.MainBar
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    position: fixed;
+    width: 100%;
+    height: auto;
+}
+
+li.MainBar
+{
+    /* display: inline; */
+    float: left;
+}
+
+li a.MainBar
+{
+    display: block;
+    padding: 8px;
+    color: white;
+    text-decoration: none;
+}
+
+li a.MainBar:hover
+{
+    background-color: #111;
 }

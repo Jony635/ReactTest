@@ -126,6 +126,28 @@ class SwitchButton extends React.Component
     }
 }
 
+class MainBar extends React.Component
+{
+    constructor(props)
+    {
+        super(props);
+
+
+    }
+
+    render()
+    {
+        return <div>
+            <ul className = "MainBar">
+                <li className = "MainBar"><a className = "MainBar" href = "">Home</a></li>
+                <li className = "MainBar"><a className = "MainBar" href="">News</a></li>
+                <li className = "MainBar"><a className = "MainBar" href="">Contact</a></li>
+                <li className = "MainBar"><a className = "MainBar" href="">About</a></li>
+            </ul>
+        </div>
+    }
+}
+
 class App extends React.Component
 {
     constructor(props)
@@ -135,30 +157,24 @@ class App extends React.Component
 
     render()
     {
-        return <div className = "inlineElem">
-        <Clock/>
-            {/* <ul>
-                <li>Coffee</li>
-                <li>Tea</li>
-                <li>Milk</li>
-            </ul> */}
+        return <div>
+            
+            <MainBar/>
+            <div>
+                <div className = "inlineElem">
+            
+                <Clock/>
+                <SwitchButton/>
+                
+                <audio id = "mainAudio" loop >
+                    <source src="resources/Bely Basarte - Mariposas.mp3" type="audio/mp3"/>
+                    Your browser does not support the audio element.
+                </audio> 
 
-        <SwitchButton/>
-
-        <div className = "video">
-            <iframe width="949" 
-                    height="534" src="https://www.youtube.com/embed/668nUCeBHyY" frameborder="0" 
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-            </iframe>
-        </div>
-        
-        <audio id = "mainAudio" loop>
-            <source src="resources/Bely Basarte - Mariposas.mp3" type="audio/mp3"/>
-            Your browser does not support the audio element.
-        </audio> 
-
-
-        </div>;
+                </div>    
+            </div>
+                  
+        </div>      
     }
 }
 
@@ -169,6 +185,10 @@ function OnPageLoaded()
     mainAudio.volume = 0.6;
     mainAudio.play();
     mainAudio.playing = true;    
+    mainAudio.onended = function()
+    {
+        mainAudio.play();
+    }
 }
 
 ReactDOM.render(<App/>, document.getElementById("root"));
