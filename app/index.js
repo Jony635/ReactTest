@@ -177,7 +177,7 @@ var MainBar = function (_React$Component3) {
                         { className: "MainBar" },
                         React.createElement(
                             "a",
-                            { className: "MainBar", href: "" },
+                            { className: "MainBar", href: "index.html" },
                             "Home"
                         )
                     ),
@@ -204,7 +204,7 @@ var MainBar = function (_React$Component3) {
                         { className: "MainBar" },
                         React.createElement(
                             "a",
-                            { className: "MainBar", href: "" },
+                            { className: "MainBar", href: "test.html" },
                             "About"
                         )
                     )
@@ -231,7 +231,7 @@ var Image = function (_React$Component4) {
             return React.createElement(
                 "div",
                 { className: "ImageContainer" },
-                React.createElement("img", { src: "resources/testImage.jpg" })
+                React.createElement("img", { src: "../resources/testImage.jpg" })
             );
         }
     }]);

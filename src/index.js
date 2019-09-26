@@ -137,10 +137,10 @@ class MainBar extends React.Component
     {
         return <div className = "MainBar">
             <ul id = "MainBar" className = "MainBar">
-                <li className = "MainBar"><a className = "MainBar" href = "">Home</a></li>
+                <li className = "MainBar"><a className = "MainBar" href = "index.html">Home</a></li>
                 <li className = "MainBar"><a className = "MainBar" href="">News</a></li>
                 <li className = "MainBar"><a className = "MainBar" href="">Contact</a></li>
-                <li className = "MainBar"><a className = "MainBar" href="">About</a></li>
+                <li className = "MainBar"><a className = "MainBar" href="test.html">About</a></li>
             </ul>
         </div>
     }
@@ -156,7 +156,7 @@ class Image extends React.Component
     render()
     {
         return <div className = "ImageContainer">
-            <img src = "resources/testImage.jpg"></img>
+            <img src = "../resources/testImage.jpg"></img>
         </div>
     }
 }
@@ -244,7 +244,5 @@ function OnScroll()
         content.classList.remove("content");
     }
 }
-
-
 
 ReactDOM.render(<App/>, document.getElementById("root"));
