@@ -82,7 +82,7 @@ function OnPageLoaded() {
 }
 
 function OnScroll() {
-    if (window.pageYOffset >= 200) {
+    if (window.pageYOffset >= window.innerWidth * 200 / 1920) {
         navBar.classList.add("sticky");
         content.classList.add("content");
     } else {
