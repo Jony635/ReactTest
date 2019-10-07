@@ -8,13 +8,21 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var mainAudio = undefined;
+var navBar = undefined;
+var content = undefined;
+var img = undefined;
+
 var App = function (_React$Component) {
     _inherits(App, _React$Component);
 
     function App(props) {
         _classCallCheck(this, App);
 
-        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+        img = React.createElement(Image, { src: "resources/testImage.jpg", sticky_height: "200" });
+        return _this;
     }
 
     _createClass(App, [{
@@ -23,7 +31,7 @@ var App = function (_React$Component) {
             return React.createElement(
                 "div",
                 null,
-                React.createElement(Image, null),
+                img,
                 React.createElement(NavigationBar, { active: "Home", home: "index.html", about: "html/about.html" }),
                 React.createElement(
                     "div",
@@ -71,10 +79,6 @@ var App = function (_React$Component) {
     return App;
 }(React.Component);
 
-var mainAudio = undefined;
-var navBar = undefined;
-var content = undefined;
-
 function OnPageLoaded() {
     window.onscroll = OnScroll;
     navBar = document.getElementById("NavBar");
@@ -82,7 +86,7 @@ function OnPageLoaded() {
 }
 
 function OnScroll() {
-    if (window.pageYOffset >= window.innerWidth * 200 / 1920) {
+    if (window.pageYOffset >= window.innerWidth * img.props.sticky_height / 1920) {
         navBar.classList.add("sticky");
         content.classList.add("content");
     } else {

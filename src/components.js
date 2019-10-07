@@ -156,7 +156,7 @@ class Image extends React.Component
     render()
     {
         return <div className = "ImageContainer">
-            <img src = "resources/testImage.jpg"></img>
+            <img src = {this.props.src}></img>
         </div>
     }
 }

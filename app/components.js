@@ -235,7 +235,7 @@ var Image = function (_React$Component4) {
             return React.createElement(
                 "div",
                 { className: "ImageContainer" },
-                React.createElement("img", { src: "resources/testImage.jpg" })
+                React.createElement("img", { src: this.props.src })
             );
         }
     }]);

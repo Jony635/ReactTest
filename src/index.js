@@ -1,16 +1,22 @@
 'use strict';
 
+var mainAudio = undefined;
+var navBar = undefined;
+var content = undefined;
+var img = undefined;
+
 class App extends React.Component
 {
     constructor(props)
     {
         super(props);
+        img = <Image src = "resources/testImage.jpg" sticky_height = "200"/>;
     }
 
     render()
     {
         return <div>
-            <Image/>
+            {img}
             <NavigationBar active = "Home" home = "index.html" about = "html/about.html"/>
             
             <div id = "content">
@@ -55,10 +61,6 @@ class App extends React.Component
     }
 }
 
-var mainAudio = undefined;
-var navBar = undefined;
-var content = undefined
-
 function OnPageLoaded()
 {
     window.onscroll = OnScroll;
@@ -69,7 +71,7 @@ function OnPageLoaded()
 
 function OnScroll()
 {
-    if (window.pageYOffset >= (window.innerWidth * 200 / 1920)) 
+    if (window.pageYOffset >= (window.innerWidth * img.props.sticky_height / 1920)) 
     {
         navBar.classList.add("sticky")
         content.classList.add("content");
