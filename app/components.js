@@ -211,6 +211,16 @@ var NavigationBar = function (_React$Component3) {
                             { href: this.props.about },
                             " About"
                         )
+                    ),
+                    React.createElement(
+                        "li",
+                        { className: this.props.active == "Gallery" ? "active" : "" },
+                        "    ",
+                        React.createElement(
+                            "a",
+                            { href: this.props.gallery },
+                            " Gallery"
+                        )
                     )
                 )
             );
@@ -232,13 +242,81 @@ var Image = function (_React$Component4) {
     _createClass(Image, [{
         key: "render",
         value: function render() {
-            return React.createElement(
-                "div",
-                { className: "ImageContainer" },
-                React.createElement("img", { src: this.props.src })
-            );
+            return React.createElement("img", { src: this.props.src });
         }
     }]);
 
     return Image;
+}(React.Component);
+
+var Gallery = function (_React$Component5) {
+    _inherits(Gallery, _React$Component5);
+
+    function Gallery(props) {
+        _classCallCheck(this, Gallery);
+
+        var _this6 = _possibleConstructorReturn(this, (Gallery.__proto__ || Object.getPrototypeOf(Gallery)).call(this, props));
+
+        _this6.col1 = [];
+        _this6.col2 = [];
+        _this6.col3 = [];
+        _this6.col4 = [];
+
+        var columnid = 0;
+        for (var i = 0; i < _this6.props.images.length; i++) {
+            var imageURL = _this6.props.images[i];
+
+            switch (columnid) {
+                case 0:
+                    _this6.col1.push(React.createElement(Image, { src: imageURL }));
+                    break;
+                case 1:
+                    _this6.col2.push(React.createElement(Image, { src: imageURL }));
+                    break;
+                case 2:
+                    _this6.col3.push(React.createElement(Image, { src: imageURL }));
+                    break;
+                case 3:
+                    _this6.col4.push(React.createElement(Image, { src: imageURL }));
+                    break;
+            }
+
+            columnid++;
+
+            if (columnid > 3) columnid = 0;
+        }
+        return _this6;
+    }
+
+    _createClass(Gallery, [{
+        key: "render",
+        value: function render() {
+            return React.createElement(
+                "div",
+                { className: "Gallery" },
+                React.createElement(
+                    "div",
+                    { className: "GalleryColumn" },
+                    this.col1
+                ),
+                React.createElement(
+                    "div",
+                    { className: "GalleryColumn" },
+                    this.col2
+                ),
+                React.createElement(
+                    "div",
+                    { className: "GalleryColumn" },
+                    this.col3
+                ),
+                React.createElement(
+                    "div",
+                    { className: "GalleryColumn" },
+                    this.col4
+                )
+            );
+        }
+    }]);
+
+    return Gallery;
 }(React.Component);

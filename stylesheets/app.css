@@ -106,6 +106,28 @@ img
     }
 }
 
+.Gallery
+{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 15%;
+    padding-top: 20px;
+}
+
+.GalleryColumn
+{
+    flex: 20%;
+    max-width: 20%;
+    padding: 0 4px;
+}
+
+.GalleryColumn img
+{
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+}
+
 .NavBar > ul > li > a
 {
     display: block;

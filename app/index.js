@@ -32,7 +32,7 @@ var App = function (_React$Component) {
                 "div",
                 null,
                 img,
-                React.createElement(NavigationBar, { active: "Home", home: "index.html", about: "html/about.html" }),
+                React.createElement(NavigationBar, { active: "Home", home: "index.html", about: "html/about.html", gallery: "html/gallery.html" }),
                 React.createElement(
                     "div",
                     { id: "content" },

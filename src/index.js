@@ -17,7 +17,7 @@ class App extends React.Component
     {
         return <div>
             {img}
-            <NavigationBar active = "Home" home = "index.html" about = "html/about.html"/>
+            <NavigationBar active = "Home" home = "index.html" about = "html/about.html" gallery = "html/gallery.html"/>
             
             <div id = "content">
                 <p>
@@ -54,9 +54,7 @@ class App extends React.Component
                 <p>
                     Proin pulvinar elementum quam ut varius. Sed pretium urna nibh, sit amet porta metus feugiat eget. Phasellus condimentum dui felis, vitae sodales sapien tempus eget. Curabitur tincidunt ligula at leo accumsan vehicula. Morbi blandit nulla vitae est tempus tincidunt. Phasellus condimentum hendrerit metus, a convallis ante pellentesque ut. Nulla fringilla arcu eu ipsum volutpat, at sodales urna facilisis. Aliquam vestibulum, nulla et luctus laoreet, est justo euismod nunc, ac maximus erat tortor vel massa. Etiam lacinia id justo et placerat. Cras ex metus, pulvinar eu ultrices a, convallis viverra velit. Nulla blandit mauris et urna malesuada, eu placerat lectus ultrices.              
                 </p>
-
-            
-            </div>      
+            </div>
         </div>      
     }
 }

@@ -141,6 +141,7 @@ class NavigationBar extends React.Component
                 <li className = { this.props.active == "News" ? "active" : ""}>     <a href="">News</a></li>
                 <li className = { this.props.active == "Contact" ? "active" : ""}>  <a href="">Contact</a></li>
                 <li className = { this.props.active == "About" ? "active" : ""}>    <a href= {this.props.about}> About</a></li>
+                <li className = { this.props.active == "Gallery" ? "active" : ""}>    <a href= {this.props.gallery}> Gallery</a></li>
             </ul>
         </div>
     }
@@ -155,8 +156,69 @@ class Image extends React.Component
 
     render()
     {
-        return <div className = "ImageContainer">
-            <img src = {this.props.src}></img>
+        return <img src = {this.props.src}></img>
+    }
+}
+
+class Gallery extends React.Component
+{
+    constructor(props)
+    {
+        super(props);
+
+        this.col1 = [];
+        this.col2 = [];
+        this.col3 = [];
+        this.col4 = [];
+
+        var columnid = 0;
+        for(var i = 0; i < this.props.images.length; i++)
+        {
+             var imageURL = this.props.images[i];
+
+             switch(columnid)
+             {
+                 case 0:
+                    this.col1.push(<Image src = {imageURL}/>);
+                    break;
+                case 1:
+                    this.col2.push(<Image src = {imageURL}/>);
+                    break;
+                case 2:
+                    this.col3.push(<Image src = {imageURL}/>);
+                    break;
+                case 3:
+                    this.col4.push(<Image src = {imageURL}/>);
+                    break;
+             }
+
+             columnid++
+
+             if(columnid > 3)
+                columnid = 0;            
+        }
+    }
+
+    render()
+    {
+        return <div className = "Gallery">
+              
+            <div className = "GalleryColumn">
+                {this.col1}
+            </div>
+
+            <div className = "GalleryColumn">
+                {this.col2}
+            </div>
+
+            <div className = "GalleryColumn">
+                {this.col3}
+            </div>
+
+            <div className = "GalleryColumn">
+                {this.col4}
+            </div>
+
         </div>
     }
 }
