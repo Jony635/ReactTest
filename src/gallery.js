@@ -25,7 +25,7 @@ class App extends React.Component
             <div id = "content">
                 <Gallery images = {[prefix + "fregadora1.jpg", prefix + "fregadora2.jpg", prefix + "furgoneta1.jpg",
                                     prefix + "Aspiradora1.jpg", prefix + "suelo_brillante.jpg", 
-                                    prefix + "suelo_marmol.jpg", prefix + "logo.jpg"]}/>
+                                    prefix + "suelo_marmol.jpg", prefix + "oficina.jpeg", prefix + "logo.jpg"]}/>
             </div>
 
         </div>;
