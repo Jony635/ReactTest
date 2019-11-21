@@ -43,10 +43,21 @@ function OnScroll()
     {
         navBar.classList.add("sticky")
         content.classList.add("content");
+        
+        if(window.innerWidth > 1000)
+        {
+            content.style.paddingTop = "55px"
+        }
+        else
+        {
+            content.style.paddingTop = "190px"
+        }       
     } 
     else 
     {
         navBar.classList.remove("sticky");
         content.classList.remove("content");
+
+        content.style.paddingTop = "20px"
     }
 }
