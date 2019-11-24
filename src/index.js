@@ -79,8 +79,8 @@ function OnScroll()
             content.style.paddingTop = "55px"
         }
         else
-        {
-            content.style.paddingTop = "190px"
+        {          
+            content.style.paddingTop = "190px";
         }       
     } 
     else 
