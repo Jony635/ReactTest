@@ -70,7 +70,24 @@ var App = function (_React$Component) {
                         "p",
                         null,
                         "Proin pulvinar elementum quam ut varius. Sed pretium urna nibh, sit amet porta metus feugiat eget. Phasellus condimentum dui felis, vitae sodales sapien tempus eget. Curabitur tincidunt ligula at leo accumsan vehicula. Morbi blandit nulla vitae est tempus tincidunt. Phasellus condimentum hendrerit metus, a convallis ante pellentesque ut. Nulla fringilla arcu eu ipsum volutpat, at sodales urna facilisis. Aliquam vestibulum, nulla et luctus laoreet, est justo euismod nunc, ac maximus erat tortor vel massa. Etiam lacinia id justo et placerat. Cras ex metus, pulvinar eu ultrices a, convallis viverra velit. Nulla blandit mauris et urna malesuada, eu placerat lectus ultrices."
-                    )
+                    ),
+                    React.createElement("button", { onClick: function onClick() {
+                            var data = new FormData();
+                            data.append("subject", "Hello world");
+                            data.append("email", "jony635molina@gmail.com");
+                            data.append("message", "Aprendiendo a enviar mails con js (React) y un servidor php");
+
+                            fetch("php/index.php", {
+                                method: "POST",
+                                body: data
+                            }).then(function (response) {
+                                return response.text();
+                            }).then(function (texto) {
+                                console.log("Esto funciona " + texto);
+                            }).catch(function (error) {
+                                console.log("Esto no funciona " + error);
+                            });
+                        } })
                 )
             );
         }
